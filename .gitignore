@@ -13,10 +13,22 @@ ckpt_*/
 checkpoint_*/
 
 # 결과 (실험마다 달라짐)
+# results - 기본은 제외
 results/scores.json
 results/time_log.json
 results/*.json
 results/figures/*.png
+
+# 아래처럼 변경 (전부 제외했던 것 → 허용으로)
+# results/ 줄 삭제하고 아래로 교체
+!results/scores.json
+!results/time_log.json
+!results/midterm_summary.json
+!results/category_version_comparison.json
+!results/figures/midterm_*.png
+!results/figures/tfidf_*.png
+!results/figures/fisa_*.png
+!results/figures/gradcam_*/
 
 # Python
 __pycache__/
