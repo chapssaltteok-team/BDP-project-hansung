@@ -1,0 +1,39 @@
+# 데이터 파일 (용량 크고 개인정보 포함)
+data/raw/*.csv
+data/processed/*.csv
+data/processed/*.json
+data/images/*.jpg
+
+# 모델 가중치 (수백MB ~ GB)
+outputs/
+!outputs/.gitkeep
+
+# 체크포인트
+ckpt_*/
+checkpoint_*/
+
+# 결과 (실험마다 달라짐)
+results/scores.json
+results/time_log.json
+results/*.json
+results/figures/*.png
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# zip 파일
+*.zip
+*.npy
