@@ -1,0 +1,38 @@
+{
+  "preprocessing": {
+    "start": 1777463226.896512,
+    "end": 1777463235.8390265,
+    "elapsed_sec": 8.94,
+    "elapsed_min": 0.15
+  },
+  "image_download": {
+    "start": 1777369059.9701407,
+    "end": 1777382062.7039492,
+    "elapsed_sec": 13002.73,
+    "elapsed_min": 216.71
+  },
+  "tfidf_sentiment": {
+    "start": 1777486141.9450157,
+    "end": 1777486202.2986355,
+    "elapsed_sec": 60.35,
+    "elapsed_min": 1.01
+  },
+  "tfidf_category": {
+    "start": 1777486202.348521,
+    "end": 1777486263.3874745,
+    "elapsed_sec": 61.04,
+    "elapsed_min": 1.02
+  },
+  "tfidf_category_ablation": {
+    "start": 1777486263.4353676,
+    "end": 1777486315.38368,
+    "elapsed_sec": 51.95,
+    "elapsed_min": 0.87
+  },
+  "fisa_inference": {
+    "start": 1777486388.3975458,
+    "end": 1777486710.9615464,
+    "elapsed_sec": 322.56,
+    "elapsed_min": 5.38
+  }
+}

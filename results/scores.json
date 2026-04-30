@@ -1,0 +1,750 @@
+[
+  {
+    "model": "TF-IDF_Sentiment",
+    "best_clf": "LinearSVC",
+    "accuracy": 0.7669,
+    "macro_f1": 0.7662,
+    "elapsed_min": 1.43,
+    "all_classifiers": {
+      "LogisticRegression": {
+        "accuracy": 0.7461,
+        "macro_f1": 0.7378,
+        "elapsed_sec": 27.38,
+        "report": {
+          "긍정": {
+            "precision": 0.7702020202020202,
+            "recall": 0.7922077922077922,
+            "f1-score": 0.7810499359795134,
+            "support": 385.0
+          },
+          "중립": {
+            "precision": 0.7947368421052632,
+            "recall": 0.606425702811245,
+            "f1-score": 0.6879271070615034,
+            "support": 249.0
+          },
+          "부정": {
+            "precision": 0.7130281690140845,
+            "recall": 0.7788461538461539,
+            "f1-score": 0.7444852941176471,
+            "support": 520.0
+          },
+          "accuracy": 0.7461005199306759,
+          "macro avg": {
+            "precision": 0.7593223437737894,
+            "recall": 0.7258265496217303,
+            "f1-score": 0.737820779052888,
+            "support": 1154.0
+          },
+          "weighted avg": {
+            "precision": 0.7497330150340661,
+            "recall": 0.7461005199306759,
+            "f1-score": 0.7444804401660342,
+            "support": 1154.0
+          }
+        }
+      },
+      "LinearSVC": {
+        "accuracy": 0.7669,
+        "macro_f1": 0.7662,
+        "elapsed_sec": 26.93,
+        "report": {
+          "긍정": {
+            "precision": 0.7878787878787878,
+            "recall": 0.8103896103896104,
+            "f1-score": 0.7989756722151088,
+            "support": 385.0
+          },
+          "중립": {
+            "precision": 0.7450199203187251,
+            "recall": 0.751004016064257,
+            "f1-score": 0.748,
+            "support": 249.0
+          },
+          "부정": {
+            "precision": 0.7613412228796844,
+            "recall": 0.7423076923076923,
+            "f1-score": 0.7517039922103214,
+            "support": 520.0
+          },
+          "accuracy": 0.766897746967071,
+          "macro avg": {
+            "precision": 0.7647466436923991,
+            "recall": 0.7679004395871866,
+            "f1-score": 0.7662265548084767,
+            "support": 1154.0
+          },
+          "weighted avg": {
+            "precision": 0.7666730757280171,
+            "recall": 0.766897746967071,
+            "f1-score": 0.766675658364111,
+            "support": 1154.0
+          }
+        }
+      },
+      "NaiveBayes": {
+        "accuracy": 0.5797,
+        "macro_f1": 0.4783,
+        "elapsed_sec": 26.3,
+        "report": {
+          "긍정": {
+            "precision": 0.5543478260869565,
+            "recall": 0.6623376623376623,
+            "f1-score": 0.6035502958579881,
+            "support": 385.0
+          },
+          "중립": {
+            "precision": 1.0,
+            "recall": 0.0963855421686747,
+            "f1-score": 0.17582417582417584,
+            "support": 249.0
+          },
+          "부정": {
+            "precision": 0.582089552238806,
+            "recall": 0.75,
+            "f1-score": 0.6554621848739496,
+            "support": 520.0
+          },
+          "accuracy": 0.5797227036395147,
+          "macro avg": {
+            "precision": 0.7121457927752542,
+            "recall": 0.5029077348354457,
+            "f1-score": 0.47827888551870457,
+            "support": 1154.0
+          },
+          "weighted avg": {
+            "precision": 0.6630073485334986,
+            "recall": 0.5797227036395147,
+            "f1-score": 0.5346511436915069,
+            "support": 1154.0
+          }
+        }
+      }
+    },
+    "report": {
+      "긍정": {
+        "precision": 0.7878787878787878,
+        "recall": 0.8103896103896104,
+        "f1-score": 0.7989756722151088,
+        "support": 385.0
+      },
+      "중립": {
+        "precision": 0.7450199203187251,
+        "recall": 0.751004016064257,
+        "f1-score": 0.748,
+        "support": 249.0
+      },
+      "부정": {
+        "precision": 0.7613412228796844,
+        "recall": 0.7423076923076923,
+        "f1-score": 0.7517039922103214,
+        "support": 520.0
+      },
+      "accuracy": 0.766897746967071,
+      "macro avg": {
+        "precision": 0.7647466436923991,
+        "recall": 0.7679004395871866,
+        "f1-score": 0.7662265548084767,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.7666730757280171,
+        "recall": 0.766897746967071,
+        "f1-score": 0.766675658364111,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "TF-IDF_Category",
+    "best_clf": "LinearSVC",
+    "accuracy": 0.8787,
+    "macro_f1": 0.8287,
+    "elapsed_min": 1.36,
+    "all_classifiers": {
+      "LogisticRegression": {
+        "accuracy": 0.8484,
+        "macro_f1": 0.7531,
+        "elapsed_sec": 32.8,
+        "report": {
+          "감독·운영": {
+            "precision": 0.7732558139534884,
+            "recall": 0.83125,
+            "f1-score": 0.8012048192771084,
+            "support": 160.0
+          },
+          "기타": {
+            "precision": 0.76,
+            "recall": 0.4634146341463415,
+            "f1-score": 0.5757575757575758,
+            "support": 41.0
+          },
+          "부상": {
+            "precision": 0.9333333333333333,
+            "recall": 0.3684210526315789,
+            "f1-score": 0.5283018867924528,
+            "support": 38.0
+          },
+          "선수이동": {
+            "precision": 0.9278350515463918,
+            "recall": 0.7964601769911505,
+            "f1-score": 0.8571428571428571,
+            "support": 113.0
+          },
+          "타격": {
+            "precision": 0.8496420047732697,
+            "recall": 0.9128205128205128,
+            "f1-score": 0.8800988875154512,
+            "support": 390.0
+          },
+          "투구": {
+            "precision": 0.8615023474178404,
+            "recall": 0.8907766990291263,
+            "f1-score": 0.8758949880668258,
+            "support": 412.0
+          },
+          "accuracy": 0.8483535528596187,
+          "macro avg": {
+            "precision": 0.8509280918373873,
+            "recall": 0.7105238459364517,
+            "f1-score": 0.7530668357587119,
+            "support": 1154.0
+          },
+          "weighted avg": {
+            "precision": 0.850513264056926,
+            "recall": 0.8483535528596187,
+            "f1-score": 0.8430145125305132,
+            "support": 1154.0
+          }
+        }
+      },
+      "LinearSVC": {
+        "accuracy": 0.8787,
+        "macro_f1": 0.8287,
+        "elapsed_sec": 18.75,
+        "report": {
+          "감독·운영": {
+            "precision": 0.8427672955974843,
+            "recall": 0.8375,
+            "f1-score": 0.8401253918495298,
+            "support": 160.0
+          },
+          "기타": {
+            "precision": 0.8157894736842105,
+            "recall": 0.7560975609756098,
+            "f1-score": 0.7848101265822784,
+            "support": 41.0
+          },
+          "부상": {
+            "precision": 0.9090909090909091,
+            "recall": 0.5263157894736842,
+            "f1-score": 0.6666666666666666,
+            "support": 38.0
+          },
+          "선수이동": {
+            "precision": 0.9230769230769231,
+            "recall": 0.8495575221238938,
+            "f1-score": 0.8847926267281107,
+            "support": 113.0
+          },
+          "타격": {
+            "precision": 0.8829268292682927,
+            "recall": 0.9282051282051282,
+            "f1-score": 0.905,
+            "support": 390.0
+          },
+          "투구": {
+            "precision": 0.8812351543942993,
+            "recall": 0.9004854368932039,
+            "f1-score": 0.8907563025210085,
+            "support": 412.0
+          },
+          "accuracy": 0.878682842287695,
+          "macro avg": {
+            "precision": 0.8758144308520198,
+            "recall": 0.7996935729452533,
+            "f1-score": 0.8286918523912657,
+            "support": 1154.0
+          },
+          "weighted avg": {
+            "precision": 0.8791625906368132,
+            "recall": 0.878682842287695,
+            "f1-score": 0.8768230283172127,
+            "support": 1154.0
+          }
+        }
+      },
+      "NaiveBayes": {
+        "accuracy": 0.6898,
+        "macro_f1": 0.4664,
+        "elapsed_sec": 23.45,
+        "report": {
+          "감독·운영": {
+            "precision": 0.7016129032258065,
+            "recall": 0.54375,
+            "f1-score": 0.6126760563380281,
+            "support": 160.0
+          },
+          "기타": {
+            "precision": 1.0,
+            "recall": 0.0975609756097561,
+            "f1-score": 0.17777777777777778,
+            "support": 41.0
+          },
+          "부상": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 38.0
+          },
+          "선수이동": {
+            "precision": 0.975609756097561,
+            "recall": 0.35398230088495575,
+            "f1-score": 0.5194805194805194,
+            "support": 113.0
+          },
+          "타격": {
+            "precision": 0.6756198347107438,
+            "recall": 0.8384615384615385,
+            "f1-score": 0.7482837528604119,
+            "support": 390.0
+          },
+          "투구": {
+            "precision": 0.6746506986027944,
+            "recall": 0.8203883495145631,
+            "f1-score": 0.7404162102957283,
+            "support": 412.0
+          },
+          "accuracy": 0.6897746967071057,
+          "macro avg": {
+            "precision": 0.6712488654394843,
+            "recall": 0.4423571940784689,
+            "f1-score": 0.46643905279207765,
+            "support": 1154.0
+          },
+          "weighted avg": {
+            "precision": 0.6975301475881237,
+            "recall": 0.6897746967071057,
+            "f1-score": 0.6593591844555223,
+            "support": 1154.0
+          }
+        }
+      }
+    },
+    "report": {
+      "감독·운영": {
+        "precision": 0.8427672955974843,
+        "recall": 0.8375,
+        "f1-score": 0.8401253918495298,
+        "support": 160.0
+      },
+      "기타": {
+        "precision": 0.8157894736842105,
+        "recall": 0.7560975609756098,
+        "f1-score": 0.7848101265822784,
+        "support": 41.0
+      },
+      "부상": {
+        "precision": 0.9090909090909091,
+        "recall": 0.5263157894736842,
+        "f1-score": 0.6666666666666666,
+        "support": 38.0
+      },
+      "선수이동": {
+        "precision": 0.9230769230769231,
+        "recall": 0.8495575221238938,
+        "f1-score": 0.8847926267281107,
+        "support": 113.0
+      },
+      "타격": {
+        "precision": 0.8829268292682927,
+        "recall": 0.9282051282051282,
+        "f1-score": 0.905,
+        "support": 390.0
+      },
+      "투구": {
+        "precision": 0.8812351543942993,
+        "recall": 0.9004854368932039,
+        "f1-score": 0.8907563025210085,
+        "support": 412.0
+      },
+      "accuracy": 0.878682842287695,
+      "macro avg": {
+        "precision": 0.8758144308520198,
+        "recall": 0.7996935729452533,
+        "f1-score": 0.8286918523912657,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.8791625906368132,
+        "recall": 0.878682842287695,
+        "f1-score": 0.8768230283172127,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "TF-IDF_Category_Ablation",
+    "results": {
+      "v1": {
+        "n_categories": 8,
+        "categories": [
+          "FA",
+          "감독",
+          "기타",
+          "부상",
+          "심판",
+          "타격",
+          "투구",
+          "트레이드"
+        ],
+        "accuracy": 0.8154,
+        "macro_f1": 0.6214
+      },
+      "v2": {
+        "n_categories": 6,
+        "categories": ["감독·운영", "기타", "부상", "선수이동", "타격", "투구"],
+        "accuracy": 0.8484,
+        "macro_f1": 0.7531
+      }
+    },
+    "elapsed_min": 1.26
+  },
+  {
+    "model": "FISA_klue-roberta-news-sentiment",
+    "type": "inference_only (no training)",
+    "accuracy": 0.5745,
+    "macro_f1": 0.5594,
+    "elapsed_min": 6.32,
+    "n_samples": 1154,
+    "report": {
+      "긍정": {
+        "precision": 0.5872576177285319,
+        "recall": 0.5506493506493506,
+        "f1-score": 0.5683646112600537,
+        "support": 385.0
+      },
+      "중립": {
+        "precision": 0.5450236966824644,
+        "recall": 0.46184738955823296,
+        "f1-score": 0.5,
+        "support": 249.0
+      },
+      "부정": {
+        "precision": 0.5773195876288659,
+        "recall": 0.6461538461538462,
+        "f1-score": 0.6098003629764065,
+        "support": 520.0
+      },
+      "accuracy": 0.574523396880416,
+      "macro avg": {
+        "precision": 0.5698669673466207,
+        "recall": 0.5528835287871433,
+        "f1-score": 0.5593883247454867,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.5736666108027979,
+        "recall": 0.574523396880416,
+        "f1-score": 0.5722847175761283,
+        "support": 1154.0
+      }
+    },
+    "note": "뉴스 도메인 특화 사전학습 모델 (HuggingFace). 비교 기준선용."
+  },
+  {
+    "model": "BERT_Sentiment_klue_base",
+    "accuracy": 0.7383,
+    "macro_f1": 0.7404,
+    "inference_ms": 5.7157,
+    "elapsed_min": 9.95,
+    "report": {
+      "긍정": {
+        "precision": 0.7245370370370371,
+        "recall": 0.812987012987013,
+        "f1-score": 0.7662178702570379,
+        "support": 385.0
+      },
+      "중립": {
+        "precision": 0.736734693877551,
+        "recall": 0.6942307692307692,
+        "f1-score": 0.7148514851485148,
+        "support": 520.0
+      },
+      "부정": {
+        "precision": 0.7672413793103449,
+        "recall": 0.714859437751004,
+        "f1-score": 0.7401247401247402,
+        "support": 249.0
+      },
+      "accuracy": 0.7383015597920277,
+      "macro avg": {
+        "precision": 0.7428377034083109,
+        "recall": 0.7406924066562621,
+        "f1-score": 0.7403980318434309,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.7392477500206773,
+        "recall": 0.7383015597920277,
+        "f1-score": 0.7374416920426756,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "BERT_Category_klue_base_v2",
+    "version": "v2",
+    "n_categories": 6,
+    "accuracy": 0.7539,
+    "macro_f1": 0.7351,
+    "elapsed_min": 7.89,
+    "report": {
+      "타격": {
+        "precision": 0.8686868686868687,
+        "recall": 0.6615384615384615,
+        "f1-score": 0.7510917030567685,
+        "support": 390.0
+      },
+      "투구": {
+        "precision": 0.7797029702970297,
+        "recall": 0.7645631067961165,
+        "f1-score": 0.7720588235294118,
+        "support": 412.0
+      },
+      "선수이동": {
+        "precision": 0.6842105263157895,
+        "recall": 0.9203539823008849,
+        "f1-score": 0.7849056603773585,
+        "support": 113.0
+      },
+      "부상": {
+        "precision": 0.6296296296296297,
+        "recall": 0.8947368421052632,
+        "f1-score": 0.7391304347826086,
+        "support": 38.0
+      },
+      "감독·운영": {
+        "precision": 0.7218934911242604,
+        "recall": 0.7625,
+        "f1-score": 0.7416413373860182,
+        "support": 160.0
+      },
+      "기타": {
+        "precision": 0.47435897435897434,
+        "recall": 0.9024390243902439,
+        "f1-score": 0.6218487394957983,
+        "support": 41.0
+      },
+      "accuracy": 0.7538994800693241,
+      "macro avg": {
+        "precision": 0.6930804100687588,
+        "recall": 0.8176885695218283,
+        "f1-score": 0.7351127831046605,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.7766194926156542,
+        "recall": 0.7538994800693241,
+        "f1-score": 0.7555924678784478,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "BERT_Category_klue_base_v1",
+    "version": "v1",
+    "n_categories": 8,
+    "accuracy": 0.7348,
+    "macro_f1": 0.6723,
+    "elapsed_min": 7.9,
+    "report": {
+      "타격": {
+        "precision": 0.8405466970387244,
+        "recall": 0.7561475409836066,
+        "f1-score": 0.7961165048543689,
+        "support": 488.0
+      },
+      "투구": {
+        "precision": 0.8099173553719008,
+        "recall": 0.6049382716049383,
+        "f1-score": 0.6925795053003534,
+        "support": 324.0
+      },
+      "트레이드": {
+        "precision": 0.6,
+        "recall": 0.8181818181818182,
+        "f1-score": 0.6923076923076923,
+        "support": 88.0
+      },
+      "부상": {
+        "precision": 0.5833333333333334,
+        "recall": 0.813953488372093,
+        "f1-score": 0.6796116504854369,
+        "support": 43.0
+      },
+      "FA": {
+        "precision": 0.4,
+        "recall": 0.43478260869565216,
+        "f1-score": 0.4166666666666667,
+        "support": 23.0
+      },
+      "감독": {
+        "precision": 0.6496815286624203,
+        "recall": 0.8429752066115702,
+        "f1-score": 0.7338129496402878,
+        "support": 121.0
+      },
+      "심판": {
+        "precision": 0.5,
+        "recall": 0.875,
+        "f1-score": 0.6363636363636364,
+        "support": 8.0
+      },
+      "기타": {
+        "precision": 0.5876288659793815,
+        "recall": 0.9661016949152542,
+        "f1-score": 0.7307692307692307,
+        "support": 59.0
+      },
+      "accuracy": 0.7348353552859619,
+      "macro avg": {
+        "precision": 0.62138847254822,
+        "recall": 0.7640100786706165,
+        "f1-score": 0.6722784795484591,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.7599349330066405,
+        "recall": 0.7348353552859619,
+        "f1-score": 0.7362460883243492,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "ResNet_Exp1",
+    "freeze_mode": "fc_only",
+    "accuracy": 0.4307,
+    "macro_f1": 0.426,
+    "inference_ms": 5.2078,
+    "n_params": 1050627,
+    "elapsed_min": 2.39,
+    "report": {
+      "긍정": {
+        "precision": 0.44862155388471175,
+        "recall": 0.4649350649350649,
+        "f1-score": 0.45663265306122447,
+        "support": 385.0
+      },
+      "중립": {
+        "precision": 0.5905044510385756,
+        "recall": 0.38269230769230766,
+        "f1-score": 0.4644107351225204,
+        "support": 520.0
+      },
+      "부정": {
+        "precision": 0.284688995215311,
+        "recall": 0.4779116465863454,
+        "f1-score": 0.3568215892053973,
+        "support": 249.0
+      },
+      "accuracy": 0.4306759098786828,
+      "macro avg": {
+        "precision": 0.44127166671286605,
+        "recall": 0.441846339737906,
+        "f1-score": 0.4259549924630474,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.4771829918494678,
+        "recall": 0.4306759098786828,
+        "f1-score": 0.4386011519969029,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "ResNet_Exp2",
+    "freeze_mode": "layer4_fc",
+    "accuracy": 0.4601,
+    "macro_f1": 0.4536,
+    "inference_ms": 5.2068,
+    "n_params": 16015363,
+    "elapsed_min": 1.75,
+    "report": {
+      "긍정": {
+        "precision": 0.4629981024667932,
+        "recall": 0.6337662337662338,
+        "f1-score": 0.5350877192982456,
+        "support": 385.0
+      },
+      "중립": {
+        "precision": 0.6375545851528385,
+        "recall": 0.28076923076923077,
+        "f1-score": 0.38985313751668893,
+        "support": 520.0
+      },
+      "부정": {
+        "precision": 0.3542713567839196,
+        "recall": 0.5662650602409639,
+        "f1-score": 0.43585780525502316,
+        "support": 249.0
+      },
+      "accuracy": 0.46013864818024264,
+      "macro avg": {
+        "precision": 0.48494134813451706,
+        "recall": 0.49360017492547614,
+        "f1-score": 0.45359955402331925,
+        "support": 1154.0
+      },
+      "weighted avg": {
+        "precision": 0.5181942994526754,
+        "recall": 0.46013864818024264,
+        "f1-score": 0.44823309960745544,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "LateFusion_Ensemble",
+    "best_alpha": 0.85,
+    "accuracy": 0.7374,
+    "macro_f1": 0.7395,
+    "bert_f1": 0.7404,
+    "resnet_f1": 0.4528,
+    "report": {
+      "긍정": {
+        "precision": 0.7224,
+        "recall": 0.8182,
+        "f1-score": 0.7674,
+        "support": 385.0
+      },
+      "중립": {
+        "precision": 0.7381,
+        "recall": 0.6885,
+        "f1-score": 0.7124,
+        "support": 520.0
+      },
+      "부정": {
+        "precision": 0.7639,
+        "recall": 0.7149,
+        "f1-score": 0.7386,
+        "support": 249.0
+      },
+      "accuracy": 0.7374,
+      "macro avg": {
+        "precision": 0.7415,
+        "recall": 0.7405,
+        "f1-score": 0.7395,
+        "support": 1154.0
+      }
+    }
+  },
+  {
+    "model": "SUM_kobart_inference",
+    "rouge1": 0.2125,
+    "rouge2": 0.033,
+    "rougeL": 0.2052
+  }
+]

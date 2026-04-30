@@ -38,6 +38,14 @@ import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import platform
+if platform.system() == 'Windows':
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+elif platform.system() == 'Darwin':
+    plt.rcParams['font.family'] = 'AppleGothic'
+else:
+    plt.rcParams['font.family'] = 'NanumGothic'
+plt.rcParams['axes.unicode_minus'] = False
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression

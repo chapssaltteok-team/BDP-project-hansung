@@ -106,9 +106,22 @@ class NewsImageDataset(Dataset):
     def __len__(self): return len(self.paths)
 
     def __getitem__(self, idx):
-        try:    img = Image.open(self.paths[idx]).convert('RGB')
-        except: img = Image.new('RGB',(224,224),(180,180,180))
+        # 1. 윈도우/리눅스 섞인 경로에서 파일명만 쏙 뽑아내기
+        # 예: 'images/abc.jpg' -> 'abc.jpg' 또는 'data\images\abc.jpg' -> 'abc.jpg'
+        raw_path = self.paths[idx].replace('\\', '/')
+        filename = os.path.basename(raw_path)
+        
+        # 2. 실제 파일이 들어있는 'data/images' 폴더와 결합
+        actual_path = os.path.join('data/images', filename)
+        
+        try:    
+            img = Image.open(actual_path).convert('RGB')
+        except: 
+            # 여전히 실패할 경우를 대비해 180, 180, 180 회색 박스 생성
+            img = Image.new('RGB',(224,224),(180,180,180))
+            
         return self.transform(img), torch.tensor(self.labels[idx], dtype=torch.long)
+
 
 
 def build_resnet(freeze_mode='fc_only'):
@@ -162,6 +175,11 @@ def grad_cam_visualization(model, img_tensor, class_idx, save_path):
     model.zero_grad()
     out[0, class_idx].backward()
 
+    if not grads:
+        print("  Grad-CAM 스킵 (gradient 없음 - fc_only 모드)")
+        h1.remove()
+        h2.remove()
+        return
     weights = grads[0].mean(dim=[2,3], keepdim=True)
     cam     = (weights * features[0]).sum(dim=1).squeeze()
     cam     = torch.relu(cam)
@@ -221,9 +239,9 @@ def train_resnet(
     print(f"  데이터: train={len(train_df)} val={len(val_df)} test={len(test_df)}")
 
     train_loader = DataLoader(NewsImageDataset(train_df,image_map,TRAIN_TRANSFORM),
-                              batch_size=batch_size, shuffle=True, num_workers=0, pin_memory=True)
-    val_loader   = DataLoader(NewsImageDataset(val_df,  image_map,EVAL_TRANSFORM), batch_size=batch_size, num_workers=0)
-    test_loader  = DataLoader(NewsImageDataset(test_df, image_map,EVAL_TRANSFORM), batch_size=batch_size, num_workers=0)
+                              batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
+    val_loader   = DataLoader(NewsImageDataset(val_df,  image_map,EVAL_TRANSFORM), batch_size=batch_size, num_workers=4)
+    test_loader  = DataLoader(NewsImageDataset(test_df, image_map,EVAL_TRANSFORM), batch_size=batch_size, num_workers=4)
 
     model    = build_resnet(freeze_mode).to(DEVICE)
     n_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
