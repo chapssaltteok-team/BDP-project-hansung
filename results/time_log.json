@@ -1,9 +1,9 @@
 {
   "preprocessing": {
-    "start": 1777463226.896512,
-    "end": 1777463235.8390265,
-    "elapsed_sec": 8.94,
-    "elapsed_min": 0.15
+    "start": 1777571005.4088328,
+    "end": 1777571011.3093219,
+    "elapsed_sec": 5.9,
+    "elapsed_min": 0.1
   },
   "image_download": {
     "start": 1777369059.9701407,
@@ -12,27 +12,39 @@
     "elapsed_min": 216.71
   },
   "tfidf_sentiment": {
-    "start": 1777486141.9450157,
-    "end": 1777486202.2986355,
-    "elapsed_sec": 60.35,
-    "elapsed_min": 1.01
+    "start": 1777571082.7599776,
+    "end": 1777571134.62898,
+    "elapsed_sec": 51.87,
+    "elapsed_min": 0.86
   },
   "tfidf_category": {
-    "start": 1777486202.348521,
-    "end": 1777486263.3874745,
-    "elapsed_sec": 61.04,
-    "elapsed_min": 1.02
+    "start": 1777571134.662459,
+    "end": 1777571193.6174176,
+    "elapsed_sec": 58.95,
+    "elapsed_min": 0.98
   },
   "tfidf_category_ablation": {
-    "start": 1777486263.4353676,
-    "end": 1777486315.38368,
-    "elapsed_sec": 51.95,
-    "elapsed_min": 0.87
+    "start": 1777571193.6529944,
+    "end": 1777571255.5806725,
+    "elapsed_sec": 61.93,
+    "elapsed_min": 1.03
   },
   "fisa_inference": {
-    "start": 1777486388.3975458,
-    "end": 1777486710.9615464,
-    "elapsed_sec": 322.56,
-    "elapsed_min": 5.38
+    "start": 1777571554.8183181,
+    "end": 1777571757.3402014,
+    "elapsed_sec": 202.52,
+    "elapsed_min": 3.38
+  },
+  "bert_sentiment_klue_base": {
+    "start": 1777571778.6001687,
+    "end": 1777573061.1843204,
+    "elapsed_sec": 1282.58,
+    "elapsed_min": 21.38
+  },
+  "bert_category_klue_base": {
+    "start": 1777573128.119383,
+    "end": 1777574129.151007,
+    "elapsed_sec": 1001.03,
+    "elapsed_min": 16.68
   }
 }
