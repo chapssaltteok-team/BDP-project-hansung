@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-30 02:43",
-  "total_experiments": 9,
+  "generated_at": "2026-04-30 03:28",
+  "total_experiments": 11,
   "models": [
     {
       "model": "TF-IDF_Sentiment",
@@ -49,6 +49,12 @@
       "accuracy": 0.4601,
       "macro_f1": 0.4536,
       "elapsed_min": 1.75
+    },
+    {
+      "model": "LateFusion_Ensemble",
+      "accuracy": 0.7374,
+      "macro_f1": 0.7395,
+      "elapsed_min": null
     }
   ]
 }

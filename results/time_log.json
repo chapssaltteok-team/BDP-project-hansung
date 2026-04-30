@@ -12,27 +12,27 @@
     "elapsed_min": 216.71
   },
   "tfidf_sentiment": {
-    "start": 1777463403.7464192,
-    "end": 1777463489.7441745,
-    "elapsed_sec": 86.0,
-    "elapsed_min": 1.43
+    "start": 1777486141.9450157,
+    "end": 1777486202.2986355,
+    "elapsed_sec": 60.35,
+    "elapsed_min": 1.01
   },
   "tfidf_category": {
-    "start": 1777463489.8025107,
-    "end": 1777463571.1100833,
-    "elapsed_sec": 81.31,
-    "elapsed_min": 1.36
+    "start": 1777486202.348521,
+    "end": 1777486263.3874745,
+    "elapsed_sec": 61.04,
+    "elapsed_min": 1.02
   },
   "tfidf_category_ablation": {
-    "start": 1777463571.1700034,
-    "end": 1777463646.9873672,
-    "elapsed_sec": 75.82,
-    "elapsed_min": 1.26
+    "start": 1777486263.4353676,
+    "end": 1777486315.38368,
+    "elapsed_sec": 51.95,
+    "elapsed_min": 0.87
   },
   "fisa_inference": {
-    "start": 1777463718.3271775,
-    "end": 1777464097.495775,
-    "elapsed_sec": 379.17,
-    "elapsed_min": 6.32
+    "start": 1777486388.3975458,
+    "end": 1777486710.9615464,
+    "elapsed_sec": 322.56,
+    "elapsed_min": 5.38
   }
 }

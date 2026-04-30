@@ -403,14 +403,7 @@
       },
       "v2": {
         "n_categories": 6,
-        "categories": [
-          "감독·운영",
-          "기타",
-          "부상",
-          "선수이동",
-          "타격",
-          "투구"
-        ],
+        "categories": ["감독·운영", "기타", "부상", "선수이동", "타격", "투구"],
         "accuracy": 0.8484,
         "macro_f1": 0.7531
       }
@@ -718,41 +711,35 @@
     "best_alpha": 0.85,
     "accuracy": 0.7374,
     "macro_f1": 0.7395,
+    "bert_f1": 0.7404,
+    "resnet_f1": 0.4528,
     "report": {
       "긍정": {
-        "precision": 0.7224770642201835,
-        "recall": 0.8181818181818182,
-        "f1-score": 0.7673568818514007,
+        "precision": 0.7224,
+        "recall": 0.8182,
+        "f1-score": 0.7674,
         "support": 385.0
       },
       "중립": {
-        "precision": 0.7381443298969073,
-        "recall": 0.6884615384615385,
-        "f1-score": 0.7124378109452736,
+        "precision": 0.7381,
+        "recall": 0.6885,
+        "f1-score": 0.7124,
         "support": 520.0
       },
       "부정": {
-        "precision": 0.7639484978540773,
-        "recall": 0.714859437751004,
-        "f1-score": 0.7385892116182573,
+        "precision": 0.7639,
+        "recall": 0.7149,
+        "f1-score": 0.7386,
         "support": 249.0
       },
-      "accuracy": 0.7374350086655113,
+      "accuracy": 0.7374,
       "macro avg": {
-        "precision": 0.7415232973237226,
-        "recall": 0.7405009314647869,
-        "f1-score": 0.7394613014716439,
-        "support": 1154.0
-      },
-      "weighted avg": {
-        "precision": 0.7384851795813063,
-        "recall": 0.7374350086655113,
-        "f1-score": 0.7364027512108126,
+        "precision": 0.7415,
+        "recall": 0.7405,
+        "f1-score": 0.7395,
         "support": 1154.0
       }
-    },
-    "bert_f1": 0.7404,
-    "resnet_f1": 0.4528
+    }
   },
   {
     "model": "SUM_kobart_inference",
