@@ -46,7 +46,6 @@ def set_korean_font():
             plt.rcParams['font.family'] = prop.get_name()
             plt.rcParams['axes.unicode_minus'] = False
             return
-    # 못 찾으면 그냥 진행 (영문으로 대체됨)
     plt.rcParams['axes.unicode_minus'] = False
 
 set_korean_font()
@@ -206,7 +205,6 @@ MANUAL_CATEGORY_MAP = {
 # 방법 1: 키워드 자동 분할
 # ════════════════════════════════════════════════════════════════
 
-# 전체 키워드 풀 (prepro.py의 v2 기반 확장)
 ALL_KEYWORDS = {
     '홈런'    : ['홈런','만루홈런','솔로홈런','투런','쓰리런'],
     '안타'    : ['안타','출루율','득점'],
@@ -226,24 +224,17 @@ ALL_KEYWORDS = {
 }
 
 def build_auto_categories(n: int) -> dict:
-    """
-    전체 키워드 풀을 n개 카테고리로 자동 분할
-    - n <= len(ALL_KEYWORDS): 키워드 그룹을 병합
-    - n > len(ALL_KEYWORDS): 일부 그룹을 세분화
-    """
-    keys = list(ALL_KEYWORDS.keys())
+    keys  = list(ALL_KEYWORDS.keys())
     total = len(keys)  # 15개
 
     if n >= total:
-        # 15개: 그대로 반환
         return {k: ALL_KEYWORDS[k] for k in keys[:n]}
 
-    # n개로 병합: keys를 n묶음으로 나눔
     merged = {}
-    chunk = total / n
+    chunk  = total / n
     for i in range(n):
-        start = int(i * chunk)
-        end   = int((i + 1) * chunk)
+        start      = int(i * chunk)
+        end        = int((i + 1) * chunk)
         group_keys = keys[start:end]
         cat_name   = '·'.join(group_keys)
         cat_kws    = []
@@ -290,10 +281,9 @@ def run_experiment(n_cat: int, kw_dict: dict,
                    train_df: pd.DataFrame,
                    val_df: pd.DataFrame,
                    test_df: pd.DataFrame) -> dict:
-    """카테고리 딕셔너리 기반 실험 1회 실행"""
     col = 'cat_tmp'
 
-    train_all = pd.concat([train_df, val_df], ignore_index=True)
+    train_all     = pd.concat([train_df, val_df], ignore_index=True)
     train_labeled = assign_labels(train_all, kw_dict, col)
     test_labeled  = assign_labels(test_df,   kw_dict, col)
 
@@ -307,7 +297,7 @@ def run_experiment(n_cat: int, kw_dict: dict,
     pipe = build_pipeline()
     t0   = time.time()
     pipe.fit(X_train, y_train)
-    y_pred = pipe.predict(X_test)
+    y_pred  = pipe.predict(X_test)
     elapsed = time.time() - t0
 
     report = classification_report(
@@ -329,6 +319,22 @@ def run_experiment(n_cat: int, kw_dict: dict,
 
 
 # ════════════════════════════════════════════════════════════════
+# 결과 저장 (scores.json에 추가)
+# ════════════════════════════════════════════════════════════════
+
+def _save_result(result: dict):
+    path = os.path.join(RESULT_DIR, 'scores.json')
+    data = []
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as f:
+            data = json.load(f)
+    data.append(result)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"  scores.json 저장: {path}")
+
+
+# ════════════════════════════════════════════════════════════════
 # 메인 실험 루프
 # ════════════════════════════════════════════════════════════════
 
@@ -337,7 +343,6 @@ def run_ablation(min_cat: int = 3, max_cat: int = 15):
     print(f"  카테고리 개수 Ablation 실험 ({min_cat}~{max_cat}개)")
     print(f"{'='*55}")
 
-    # 데이터 로드
     train_df = pd.read_csv(os.path.join(PROC_DIR, 'train.csv'), encoding='utf-8-sig')
     val_df   = pd.read_csv(os.path.join(PROC_DIR, 'val.csv'),   encoding='utf-8-sig')
     test_df  = pd.read_csv(os.path.join(PROC_DIR, 'test.csv'),  encoding='utf-8-sig')
@@ -348,14 +353,12 @@ def run_ablation(min_cat: int = 3, max_cat: int = 15):
 
     for n in range(min_cat, max_cat + 1):
 
-        # ── 방법 1: 자동 분할 ──────────────────────────────────
         print(f"\n[방법1-자동] n={n}")
         kw_auto = build_auto_categories(n)
         r_auto  = run_experiment(n, kw_auto, train_df, val_df, test_df)
         r_auto['method'] = 'auto'
         results_auto.append(r_auto)
 
-        # ── 방법 2: 수동 정의 ──────────────────────────────────
         if n in MANUAL_CATEGORY_MAP:
             print(f"[방법2-수동] n={n}")
             kw_manual = MANUAL_CATEGORY_MAP[n]
@@ -365,12 +368,12 @@ def run_ablation(min_cat: int = 3, max_cat: int = 15):
         else:
             print(f"[방법2-수동] n={n} → 수동 정의 없음, 스킵")
 
-    # 결과 저장
-    all_results = {'auto': results_auto, 'manual': results_manual}
-    out_path = os.path.join(RESULT_DIR, 'category_ablation_results.json')
-    with open(out_path, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, ensure_ascii=False, indent=2)
-    print(f"\n  결과 저장: {out_path}")
+    # scores.json에 추가 저장
+    _save_result({
+        'model'  : 'Category_Ablation',
+        'auto'   : results_auto,
+        'manual' : results_manual,
+    })
 
     # 그래프 출력
     plot_results(results_auto, results_manual, min_cat, max_cat)
@@ -393,15 +396,11 @@ def plot_results(results_auto, results_manual, min_cat, max_cat):
     f1_manual  = [r['macro_f1']     for r in results_manual]
     acc_manual = [r['accuracy']     for r in results_manual]
 
-    # ── Macro-F1 비교 ─────────────────────────────────────────
     ax = axes[0]
-    ax.plot(ns_auto,   f1_auto,   'o-', color='steelblue',  label='방법1 (자동)',  linewidth=2)
-    ax.plot(ns_manual, f1_manual, 's--', color='tomato',    label='방법2 (수동)',  linewidth=2)
-
-    # v1(8개), v2(6개) 기준선 표시
+    ax.plot(ns_auto,   f1_auto,   'o-',  color='steelblue', label='방법1 (자동)', linewidth=2)
+    ax.plot(ns_manual, f1_manual, 's--', color='tomato',    label='방법2 (수동)', linewidth=2)
     ax.axvline(x=6, color='green',  linestyle=':', alpha=0.7, label='v2 (6개)')
     ax.axvline(x=8, color='orange', linestyle=':', alpha=0.7, label='v1 (8개)')
-
     ax.set_xlabel('카테고리 개수')
     ax.set_ylabel('Macro-F1')
     ax.set_title('카테고리 개수 vs Macro-F1')
@@ -409,13 +408,11 @@ def plot_results(results_auto, results_manual, min_cat, max_cat):
     ax.legend()
     ax.grid(True, alpha=0.3)
 
-    # ── Accuracy 비교 ─────────────────────────────────────────
     ax2 = axes[1]
-    ax2.plot(ns_auto,   acc_auto,   'o-', color='steelblue', label='방법1 (자동)', linewidth=2)
-    ax2.plot(ns_manual, acc_manual, 's--', color='tomato',   label='방법2 (수동)', linewidth=2)
+    ax2.plot(ns_auto,   acc_auto,   'o-',  color='steelblue', label='방법1 (자동)', linewidth=2)
+    ax2.plot(ns_manual, acc_manual, 's--', color='tomato',    label='방법2 (수동)', linewidth=2)
     ax2.axvline(x=6, color='green',  linestyle=':', alpha=0.7, label='v2 (6개)')
     ax2.axvline(x=8, color='orange', linestyle=':', alpha=0.7, label='v1 (8개)')
-
     ax2.set_xlabel('카테고리 개수')
     ax2.set_ylabel('Accuracy')
     ax2.set_title('카테고리 개수 vs Accuracy')
@@ -429,7 +426,6 @@ def plot_results(results_auto, results_manual, min_cat, max_cat):
     plt.close()
     print(f"  그래프 저장: {save_path}")
 
-    # 최적 개수 출력
     if f1_auto:
         best_auto = results_auto[f1_auto.index(max(f1_auto))]
         print(f"\n  [방법1-자동] 최고 성능: {best_auto['n_categories']}개 → Macro-F1={best_auto['macro_f1']}")
@@ -447,6 +443,6 @@ if __name__ == '__main__':
 
     print(f"\n{'='*55}")
     print(f"  카테고리 Ablation 완료")
-    print(f"  결과: results/category_ablation_results.json")
+    print(f"  결과: results/scores.json")
     print(f"  그래프: results/figures/category_ablation_plot.png")
     print(f"{'='*55}")
