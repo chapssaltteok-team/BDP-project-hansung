@@ -1,0 +1,38 @@
+{
+  "total_articles": 11898,
+  "no_hangul_articles": 4,
+  "no_hangul_pct": 0.03,
+  "low_hangul_lt_30pct": 9,
+  "short_body_lt_200": 242,
+  "caption_pattern_hits": {
+    "사진_제공": 3096,
+    "사진제공": 266,
+    "뉴스1제공": 5,
+    "연합뉴스제공": 60,
+    "캡션_괄호": 41,
+    "괄호기자": 794,
+    "게티이미지": 99,
+    "자료사진": 68,
+    "그래픽": 79,
+    "OSEN": 829
+  },
+  "source_summary": [
+    {
+      "source": "naver",
+      "n": 11898,
+      "no_hangul": 4,
+      "low_hangul": 9,
+      "avg_len": 1426.1013615733737,
+      "short_count": 242,
+      "no_hangul_pct": 0.03,
+      "low_hangul_pct": 0.08,
+      "short_pct": 2.03
+    }
+  ],
+  "recommendation": {
+    "language_filter": "한글 비율 ≥ 0.3 인 기사만 유지 (영문 전용 제거)",
+    "caption_removal": "사진=, 사진제공, [사진 …], (○○ 기자), 게티이미지 등 정규식 제거",
+    "min_body_length": "본문 200자 이상",
+    "rationale": "본 EDA 결과 기반 임계값"
+  }
+}
