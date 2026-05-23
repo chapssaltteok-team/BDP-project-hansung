@@ -259,7 +259,102 @@ def save_report(df, no_hangul, caption_stats, by_source):
     print(f"\n  종합 리포트 저장 → {path}")
 
 
-# ── 메인 ─────────────────────────────────────────────────────────────────────
+# ── 7. 캡션 실제 문장 추출 (마커 + 뒤따르는 문장) ──────────────────────────
+def extract_caption_samples(df: pd.DataFrame, n=30):
+    """
+    사진 마커 뒤에 어떤 문장이 따라오는지 실제로 뽑아서 본다.
+    → 캡션 종료 지점(마침표/줄바꿈/문장부호) 패턴 파악
+    """
+    print("\n[7] 캡션 실제 문장 샘플 추출")
+
+    # 마커별로 뒤따르는 텍스트 100자까지 캡쳐
+    patterns = {
+        '사진=뒤'   : re.compile(r'(사진\s*[=:]\s*[^\n]{0,150})'),
+        '사진제공뒤': re.compile(r'(사진\s*제공[^\n]{0,150})'),
+        '▲뒤'      : re.compile(r'(▲[^\n]{0,150})'),
+        '괄호기자'  : re.compile(r'(\([^)]{0,30}기자\))'),
+        '게티뒤'   : re.compile(r'(게티이미지[^\n]{0,100})'),
+    }
+
+    all_samples = {}
+    for name, pat in patterns.items():
+        hits = []
+        for body in df['body'].dropna():
+            matches = pat.findall(str(body))
+            hits.extend(matches)
+        all_samples[name] = hits
+
+        # 통계
+        if hits:
+            lengths = [len(h) for h in hits]
+            print(f"\n  [{name}] 총 {len(hits):,}건")
+            print(f"    평균 길이: {np.mean(lengths):.1f}자 / "
+                  f"중앙: {np.median(lengths):.0f}자 / "
+                  f"최대: {max(lengths)}자")
+            print(f"    샘플 5개:")
+            for s in hits[:5]:
+                preview = s.replace('\n', ' ')[:120]
+                print(f"      · {preview}")
+
+    # CSV 저장
+    rows = []
+    for name, hits in all_samples.items():
+        for h in hits[:50]:  # 패턴당 50개씩
+            rows.append({'pattern': name,
+                         'length': len(h),
+                         'text': h.replace('\n', ' ')[:200]})
+    pd.DataFrame(rows).to_csv(
+        os.path.join(REPORT_DIR, 'caption_samples.csv'),
+        index=False, encoding='utf-8-sig')
+    print(f'\n  → caption_samples.csv 저장')
+    return all_samples
+
+
+# ── 8. 캡션 길이 분포 (정규식 max 길이 결정용) ──────────────────────────────
+def analyze_caption_length(df: pd.DataFrame):
+    """
+    '사진=' 마커 뒤 문장이 보통 어디서 끝나는지 (마침표/줄바꿈/공백)
+    → 정규식의 종결 조건 설계 근거
+    """
+    print("\n[8] '사진=' 뒤 캡션 종료 지점 분석")
+    
+    # 사진= 뒤 ~ 다음 마침표/줄바꿈까지 캡쳐
+    pat = re.compile(r'사진\s*[=:]\s*([^.\n]{0,200})[.\n]')
+    
+    lengths = []
+    enders  = Counter()
+    for body in df['body'].dropna():
+        for m in pat.finditer(str(body)):
+            caption = m.group(1)
+            lengths.append(len(caption))
+            # 다음 문자가 . 인지 \n 인지
+            end_pos = m.end()
+            if end_pos <= len(body):
+                enders[body[end_pos-1]] += 1
+    
+    if lengths:
+        print(f"  '사진=' 캡션 길이 분포:")
+        print(f"    평균: {np.mean(lengths):.1f}자")
+        print(f"    중앙: {np.median(lengths):.0f}자")
+        print(f"    90%: {np.percentile(lengths, 90):.0f}자")
+        print(f"    최대: {max(lengths)}자")
+        print(f"  종결 문자 분포: {dict(enders.most_common(5))}")
+        
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.hist(lengths, bins=40, color='salmon', edgecolor='black', alpha=0.8)
+        ax.axvline(np.percentile(lengths, 90), color='red',
+                   linestyle='--', label=f'90% 지점 {np.percentile(lengths,90):.0f}자')
+        ax.set_title("'사진=' 뒤 캡션 길이 분포")
+        ax.set_xlabel('캡션 길이 (글자)')
+        ax.set_ylabel('빈도')
+        ax.legend()
+        plt.tight_layout()
+        plt.savefig(os.path.join(FIG_DIR, 'noise_04_caption_length.png'), dpi=150)
+        plt.close()
+        print('  → noise_04_caption_length.png 저장')
+
+
+# ── 메인에 추가 ──────────────────────────────────────────────────────────────
 if __name__ == '__main__':
     print('=' * 60)
     print('  전처리 v2 설계용 노이즈 진단 EDA')
@@ -272,9 +367,8 @@ if __name__ == '__main__':
     analyze_length(df)
     by_source       = analyze_by_source(df)
     save_noise_samples(df, n=15)
+    extract_caption_samples(df, n=30)      # ✨ 추가
+    analyze_caption_length(df)             # ✨ 추가
     save_report(df, no_hangul, caption_stats, by_source)
 
     print('\n노이즈 EDA 완료')
-    print(f'  → 도표:   {FIG_DIR}/noise_*.png')
-    print(f'  → 리포트: {REPORT_DIR}/noise_eda_report.json')
-    print(f'  → 샘플:   {REPORT_DIR}/noise_suspect_samples.csv')
