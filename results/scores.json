@@ -1102,5 +1102,480 @@
     "ms_per_sample": 0.0032,
     "stability_var": 0.0,
     "notes": "θ=0.5 stratified 기준 대표 수치"
+  },
+  {
+    "model": "Category_Ablation_ContextAware",
+    "auto": [
+      {
+        "n_categories": 3,
+        "accuracy": 0.896,
+        "macro_f1": 0.8526,
+        "elapsed_sec": 11.5,
+        "categories": [
+          "홈런·안타·타율·선발투수·마무리",
+          "불펜·삼진·트레이드·영입·방출·FA",
+          "부상·감독·구단운영·심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 4,
+        "accuracy": 0.8865,
+        "macro_f1": 0.8682,
+        "elapsed_sec": 11.93,
+        "categories": [
+          "홈런·안타·타율",
+          "선발투수·마무리·불펜·삼진",
+          "트레이드·영입·방출·FA·부상",
+          "감독·구단운영·심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 5,
+        "accuracy": 0.831,
+        "macro_f1": 0.7819,
+        "elapsed_sec": 13.26,
+        "categories": [
+          "홈런·안타·타율",
+          "선발투수·마무리·불펜",
+          "삼진·트레이드·영입·방출",
+          "FA·부상·감독",
+          "구단운영·심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 6,
+        "accuracy": 0.7964,
+        "macro_f1": 0.7848,
+        "elapsed_sec": 12.7,
+        "categories": [
+          "홈런·안타",
+          "타율·선발투수·마무리",
+          "불펜·삼진",
+          "트레이드·영입·방출·FA",
+          "부상·감독",
+          "구단운영·심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 7,
+        "accuracy": 0.7964,
+        "macro_f1": 0.7662,
+        "elapsed_sec": 12.85,
+        "categories": [
+          "홈런·안타",
+          "타율·선발투수",
+          "마무리·불펜",
+          "삼진·트레이드",
+          "영입·방출·FA",
+          "부상·감독",
+          "구단운영·심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 8,
+        "accuracy": 0.799,
+        "macro_f1": 0.7233,
+        "elapsed_sec": 13.07,
+        "categories": [
+          "홈런",
+          "안타·타율",
+          "선발투수·마무리",
+          "불펜·삼진",
+          "트레이드·영입·방출",
+          "FA·부상",
+          "감독·구단운영",
+          "심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 9,
+        "accuracy": 0.8111,
+        "macro_f1": 0.7295,
+        "elapsed_sec": 13.45,
+        "categories": [
+          "홈런",
+          "안타·타율",
+          "선발투수·마무리",
+          "불펜",
+          "삼진·트레이드",
+          "영입·방출·FA",
+          "부상",
+          "감독·구단운영",
+          "심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 10,
+        "accuracy": 0.7929,
+        "macro_f1": 0.7309,
+        "elapsed_sec": 13.6,
+        "categories": [
+          "홈런",
+          "안타·타율",
+          "선발투수",
+          "마무리·불펜",
+          "삼진",
+          "트레이드·영입·방출",
+          "FA",
+          "부상·감독",
+          "구단운영",
+          "심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 11,
+        "accuracy": 0.7903,
+        "macro_f1": 0.7089,
+        "elapsed_sec": 13.93,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율·선발투수",
+          "마무리",
+          "불펜",
+          "삼진·트레이드",
+          "영입·방출",
+          "FA",
+          "부상·감독",
+          "구단운영",
+          "심판"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 12,
+        "accuracy": 0.7825,
+        "macro_f1": 0.6946,
+        "elapsed_sec": 14.24,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율",
+          "선발투수·마무리",
+          "불펜",
+          "삼진",
+          "트레이드",
+          "영입·방출·FA",
+          "부상",
+          "감독",
+          "구단운영",
+          "심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 13,
+        "accuracy": 0.7764,
+        "macro_f1": 0.7125,
+        "elapsed_sec": 14.21,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율",
+          "선발투수",
+          "마무리",
+          "불펜",
+          "삼진·트레이드",
+          "영입·방출",
+          "FA",
+          "부상",
+          "감독",
+          "구단운영",
+          "심판"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 14,
+        "accuracy": 0.7799,
+        "macro_f1": 0.7027,
+        "elapsed_sec": 14.27,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율",
+          "선발투수",
+          "마무리",
+          "불펜",
+          "삼진",
+          "트레이드",
+          "영입·방출",
+          "FA",
+          "부상",
+          "감독",
+          "구단운영",
+          "심판·기타"
+        ],
+        "method": "auto"
+      },
+      {
+        "n_categories": 15,
+        "accuracy": 0.7773,
+        "macro_f1": 0.7183,
+        "elapsed_sec": 14.57,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율",
+          "선발투수",
+          "마무리",
+          "불펜",
+          "삼진",
+          "트레이드",
+          "영입·방출",
+          "FA",
+          "부상",
+          "감독",
+          "구단운영",
+          "심판",
+          "기타"
+        ],
+        "method": "auto"
+      }
+    ],
+    "manual": [
+      {
+        "n_categories": 3,
+        "accuracy": 0.9194,
+        "macro_f1": 0.8531,
+        "elapsed_sec": 11.69,
+        "categories": [
+          "타격·투구",
+          "선수·운영",
+          "부상·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 4,
+        "accuracy": 0.8908,
+        "macro_f1": 0.8781,
+        "elapsed_sec": 12.18,
+        "categories": [
+          "타격",
+          "투구",
+          "선수이동",
+          "운영·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 5,
+        "accuracy": 0.883,
+        "macro_f1": 0.8544,
+        "elapsed_sec": 12.46,
+        "categories": [
+          "타격",
+          "투구",
+          "선수이동",
+          "감독·운영",
+          "부상·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 6,
+        "accuracy": 0.8752,
+        "macro_f1": 0.7872,
+        "elapsed_sec": 12.37,
+        "categories": [
+          "타격",
+          "투구",
+          "선수이동",
+          "부상",
+          "감독·운영",
+          "기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 7,
+        "accuracy": 0.8354,
+        "macro_f1": 0.7788,
+        "elapsed_sec": 12.79,
+        "categories": [
+          "홈런·장타",
+          "안타·타율",
+          "선발투수",
+          "불펜·마무리",
+          "선수이동",
+          "부상·재활",
+          "운영·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 8,
+        "accuracy": 0.8709,
+        "macro_f1": 0.7135,
+        "elapsed_sec": 13.1,
+        "categories": [
+          "타격",
+          "투구",
+          "트레이드",
+          "부상",
+          "FA",
+          "감독",
+          "심판",
+          "기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 9,
+        "accuracy": 0.8059,
+        "macro_f1": 0.7429,
+        "elapsed_sec": 13.31,
+        "categories": [
+          "홈런",
+          "타격",
+          "선발투수",
+          "구원투수",
+          "트레이드",
+          "FA·계약",
+          "부상",
+          "감독·운영",
+          "심판·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 10,
+        "accuracy": 0.8059,
+        "macro_f1": 0.7407,
+        "elapsed_sec": 13.54,
+        "categories": [
+          "홈런",
+          "타격",
+          "선발투수",
+          "구원투수",
+          "삼진·구위",
+          "트레이드",
+          "FA·계약",
+          "부상",
+          "감독·운영",
+          "심판·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 11,
+        "accuracy": 0.7851,
+        "macro_f1": 0.6767,
+        "elapsed_sec": 14.07,
+        "categories": [
+          "홈런",
+          "타율·출루",
+          "타점·장타",
+          "선발투수",
+          "구원투수",
+          "삼진·구위",
+          "트레이드",
+          "FA·계약",
+          "부상·재활",
+          "감독·코치",
+          "구단·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 12,
+        "accuracy": 0.7721,
+        "macro_f1": 0.6436,
+        "elapsed_sec": 13.94,
+        "categories": [
+          "홈런",
+          "타율",
+          "타점",
+          "선발투수",
+          "마무리",
+          "불펜",
+          "삼진",
+          "트레이드",
+          "FA",
+          "부상",
+          "감독·운영",
+          "심판·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 13,
+        "accuracy": 0.766,
+        "macro_f1": 0.6287,
+        "elapsed_sec": 14.19,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율·타점",
+          "장타",
+          "선발투수",
+          "마무리·세이브",
+          "불펜",
+          "삼진·구위",
+          "트레이드",
+          "FA·계약",
+          "부상",
+          "감독·운영",
+          "심판·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 14,
+        "accuracy": 0.7565,
+        "macro_f1": 0.6304,
+        "elapsed_sec": 14.26,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율",
+          "타점·장타",
+          "선발투수",
+          "마무리",
+          "불펜·홀드",
+          "삼진",
+          "트레이드",
+          "FA",
+          "방출·영입",
+          "부상",
+          "감독·운영",
+          "심판·기타"
+        ],
+        "method": "manual"
+      },
+      {
+        "n_categories": 15,
+        "accuracy": 0.7643,
+        "macro_f1": 0.6563,
+        "elapsed_sec": 14.31,
+        "categories": [
+          "홈런",
+          "안타",
+          "타율",
+          "타점",
+          "장타",
+          "선발투수",
+          "마무리",
+          "불펜·홀드",
+          "삼진·구위",
+          "트레이드",
+          "FA·계약",
+          "방출·영입",
+          "부상",
+          "감독·운영",
+          "심판·기타"
+        ],
+        "method": "manual"
+      }
+    ]
   }
 ]
