@@ -1,9 +1,9 @@
 {
   "preprocessing": {
-    "start": 1777571005.4088328,
-    "end": 1777571011.3093219,
-    "elapsed_sec": 5.9,
-    "elapsed_min": 0.1
+    "start": 1779175610.052054,
+    "end": 1779175613.5766459,
+    "elapsed_sec": 3.52,
+    "elapsed_min": 0.06
   },
   "image_download": {
     "start": 1777369059.9701407,
