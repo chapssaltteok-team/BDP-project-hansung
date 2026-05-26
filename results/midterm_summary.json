@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-04-30 03:28",
+  "total_experiments": 11,
+  "models": [
+    {
+      "model": "TF-IDF_Sentiment",
+      "accuracy": 0.7669,
+      "macro_f1": 0.7662,
+      "elapsed_min": 1.43
+    },
+    {
+      "model": "TF-IDF_Category",
+      "accuracy": 0.8787,
+      "macro_f1": 0.8287,
+      "elapsed_min": 1.36
+    },
+    {
+      "model": "FISA_klue-roberta-news-sentiment",
+      "accuracy": 0.5745,
+      "macro_f1": 0.5594,
+      "elapsed_min": 6.32
+    },
+    {
+      "model": "BERT_Sentiment_klue_base",
+      "accuracy": 0.7383,
+      "macro_f1": 0.7404,
+      "elapsed_min": 9.95
+    },
+    {
+      "model": "BERT_Category_klue_base_v2",
+      "accuracy": 0.7539,
+      "macro_f1": 0.7351,
+      "elapsed_min": 7.89
+    },
+    {
+      "model": "BERT_Category_klue_base_v1",
+      "accuracy": 0.7348,
+      "macro_f1": 0.6723,
+      "elapsed_min": 7.9
+    },
+    {
+      "model": "ResNet_Exp1",
+      "accuracy": 0.4307,
+      "macro_f1": 0.426,
+      "elapsed_min": 2.39
+    },
+    {
+      "model": "ResNet_Exp2",
+      "accuracy": 0.4601,
+      "macro_f1": 0.4536,
+      "elapsed_min": 1.75
+    },
+    {
+      "model": "LateFusion_Ensemble",
+      "accuracy": 0.7374,
+      "macro_f1": 0.7395,
+      "elapsed_min": null
+    }
+  ]
+}

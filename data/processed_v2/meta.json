@@ -1,0 +1,26 @@
+{
+  "version": "v2",
+  "input": "data/processed/articles_v2.csv",
+  "total": 11883,
+  "train": 9506,
+  "val": 1188,
+  "test": 1189,
+  "sentiment_dist": {
+    "긍정": 6227,
+    "부정": 3374,
+    "중립": 2282
+  },
+  "category_dist": {
+    "타격": 4825,
+    "투구": 3344,
+    "감독": 1402,
+    "트레이드": 1185,
+    "기타": 588,
+    "부상": 380,
+    "FA": 83,
+    "심판": 76
+  },
+  "val_ratio": 0.1,
+  "test_ratio": 0.1,
+  "seed": 42
+}
