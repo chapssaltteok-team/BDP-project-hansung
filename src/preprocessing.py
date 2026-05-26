@@ -22,7 +22,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-RAW_DIR  = 'data/raw'
+RAW_DIR  = 'data/원시데이터'
 PROC_DIR = 'data/processed'
 os.makedirs(PROC_DIR, exist_ok=True)
 
